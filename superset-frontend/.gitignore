@@ -2,4 +2,4 @@ coverage/*
 cypress/screenshots
 cypress/videos
 src/temp
-superset-env/
+superset-env/*
