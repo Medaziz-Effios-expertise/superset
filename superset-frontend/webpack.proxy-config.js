@@ -100,13 +100,13 @@ function copyHeaders(originalResponse, response) {
   } else {
     response.headers = originalResponse.headers;
   }
-}
+} 
 
 /**
  * Manipulate HTML server response to replace asset files with
  * local webpack-dev-server build.
  */
-function processHTML(proxyResponse, response) {
+function processHTML(proxyResponse, response) { 
   let body = Buffer.from([]);
   let originalResponse = proxyResponse;
   let uncompress;

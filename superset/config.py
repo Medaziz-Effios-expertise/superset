@@ -270,6 +270,7 @@ FAB_API_SWAGGER_UI = True
 DRUID_TZ = tz.tzutc()
 DRUID_ANALYSIS_TYPES = ["cardinality"]
 
+
 # ----------------------------------------------------
 # AUTHENTICATION CONFIG
 # ----------------------------------------------------
@@ -436,7 +437,7 @@ DEFAULT_FEATURE_FLAGS: Dict[str, bool] = {
 # Feature flags may also be set via 'SUPERSET_FEATURE_' prefixed environment vars.
 DEFAULT_FEATURE_FLAGS.update(
     {
-        k[len("SUPERSET_FEATURE_"):]: parse_boolean_string(v)
+        k[len("SUPERSET_FEATURE_") :]: parse_boolean_string(v)
         for k, v in os.environ.items()
         if re.search(r"^SUPERSET_FEATURE_\w+", k)
     }
@@ -990,6 +991,7 @@ BLUEPRINTS: List[Blueprint] = []
 
 TRACKING_URL_TRANSFORMER = lambda x: x
 
+
 # Interval between consecutive polls when using Hive Engine
 HIVE_POLL_INTERVAL = int(timedelta(seconds=5).total_seconds())
 
@@ -1218,6 +1220,7 @@ SSL_CERT_PATH: Optional[str] = None
 
 SQLA_TABLE_MUTATOR = lambda table: table
 
+
 # Global async query config options.
 # Requires GLOBAL_ASYNC_QUERIES feature flag to be enabled.
 GLOBAL_ASYNC_QUERIES_REDIS_CONFIG = {
@@ -1292,6 +1295,7 @@ ADVANCED_DATA_TYPES: Dict[str, AdvancedDataType] = {
     "port": internet_port,
 }
 
+
 # -------------------------------------------------------------------
 # *                WARNING:  STOP EDITING  HERE                    *
 # -------------------------------------------------------------------
@@ -1317,8 +1321,8 @@ if CONFIG_PATH_ENV_VAR in os.environ:
 elif importlib.util.find_spec("superset_config") and not is_test():
     try:
         # pylint: disable=import-error,wildcard-import,unused-wildcard-import
-        from Include import superset_config
-        from Include.superset_config import *  # type:ignore
+        import superset_config
+        from superset_config import *  # type:ignore
 
         print(f"Loaded your LOCAL configuration at [{superset_config.__file__}]")
     except Exception:
