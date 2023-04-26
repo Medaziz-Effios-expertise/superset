@@ -12,7 +12,7 @@ SQLALCHEMY_DATABASE_URI = 'postgresql://MedazizLad:admin@localhost/superset'
 
 LANGUAGES = {
     "en": {"flag": "us", "name": "English"},
-    "fr": {"flag": "fr", "name": "Français"},
+    "fr": {"flag": "fr", "name": "French"},
 }
 
 APP_NAME = "EFFIOS_SUPERSET"
