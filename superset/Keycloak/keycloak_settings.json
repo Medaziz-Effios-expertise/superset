@@ -1,0 +1,15 @@
+{
+  "web": {
+    "realm_public_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAouBJZTCjR+ouFFvya95UTVGDFKHdZhdbH6yM9Np0APU43YT8Jgx5ilwwKKzSpeVV96nBdeMuSiSOFncVGmqw4Ve1Duh/v8zdnkGJe3EsXwKjwmNB9HpKjf+QAILaPEe7iJyVGNN3ix6Sf7ybuz9MAiocMEEA+hrqA39WI7XLqjQQPdDcG5nzJth4GWwI3qUd+8NKIS0Wzw7zuzf19hXLI+vV8xTSKh6wejtvkavMN8BPpXaGzYr9LeG6KAaR1P5brfZES+ts33l0Wx6a04zsjHRzxXYblqd0iLIS2Icv/f2znNePvitHYOWSCXFg2KTqSzZsbs+em0wVQQwPTxTaRQIDAQAB",
+    "issuer": "http://localhost:8080/auth/realms/superset",
+    "auth_uri": "http://localhost:8080/auth/realms/superset/protocol/openid-connect/auth",
+    "client_id": "superset_app",
+    "client_secret": "EmzfAB8LfRG4qr9Tkrm1zYNPcIjjdUmD",
+    "redirect_uris": [
+      "http://localhost:8088/superset/welcome"
+    ],
+    "userinfo_uri": "http://winhost:8080/auth/realms/superset/protocol/openid-connect/userinfo",
+    "token_uri": "http://winhost:8080/auth/realms/superset/protocol/openid-connect/token",
+    "token_introspection_uri": "http://winhost:8080/auth/realms/superset/protocol/openid-connect/token/introspect"
+  }
+}
