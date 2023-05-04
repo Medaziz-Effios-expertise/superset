@@ -28,8 +28,8 @@ class AuthOIDCView(AuthOIDView):
                             roles.append(role)
                         else:
                             continue
-                    else:
-                        roles.append(default)
+                if not roles:
+                    roles.append(default)
             if user is None:
                 info = oidc.user_getinfo(
                     ['preferred_username', 'given_name', 'family_name', 'email'])
