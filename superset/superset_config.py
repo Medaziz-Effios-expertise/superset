@@ -2,7 +2,7 @@ from datetime import timedelta
 
 #from flask_appbuilder.security.manager import AUTH_OID
 #from superset.Keycloak.security_manager import OIDCSecurityManager
-from superset.views.custom_views import LegalView, RGPDView
+#from superset.views.custom_views import LegalView, RGPDView
 
 SECRET_KEY = 'Ak+NMzarpmGp8rpwQaeJtUM5TER7x6pyfSiDtJ8nzh5t1G+0tJryBa4d'
 SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:admin@winhost/supersetdb2'
@@ -27,4 +27,4 @@ LANGUAGES = {
 BABEL_DEFAULT_LOCALE = "fr"
 
 SUPERSET_WEBSERVER_TIMEOUT = int(timedelta(minutes=2).total_seconds())
-CUSTOM_VIEWER_FILTER = [LegalView, RGPDView]
+#CUSTOM_VIEWER_FILTER = [LegalView, RGPDView]
