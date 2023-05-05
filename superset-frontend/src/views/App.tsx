@@ -39,9 +39,7 @@ import setupExtensions from 'src/setup/setupExtensions';
 import { logEvent } from 'src/logger/actions';
 import { store } from 'src/views/store';
 import { RootContextProviders } from './RootContextProviders';
-import { ScrollToTop } from './ScrollToTop';
-import QueryProvider from './QueryProvider';
-
+import Footer from 'src/components/Footer/footer';
 setupApp();
 setupPlugins();
 setupExtensions();
@@ -91,7 +89,8 @@ const App = () => (
             </Route>
           ))}
         </Switch>
-        <ToastContainer />
+        <Footer companyName="EFFIOS-SUPERSET" />
+      <ToastContainer />
       </RootContextProviders>
     </Router>
   </QueryProvider>
