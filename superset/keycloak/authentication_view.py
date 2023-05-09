@@ -16,11 +16,13 @@ class AuthOIDCView(AuthOIDView):
         @self.appbuilder.sm.oid.require_login
         def handle_login():
             user = sm.auth_user_oid(oidc.user_getfield('email'))
+            infos = oidc.user_getinfo(
+                ['preferred_username', 'given_name', 'family_name', 'email'])
             roles = []
             default = sm.find_role('Public')
-            realm_access = g.oidc_id_token.get('realm_access')
+            realm_access = g.oidc_id_token['realm_access']
             if realm_access:
-                realm_roles = realm_access.get('roles')
+                realm_roles = realm_access['roles']
                 if realm_roles:
                     for role_name in realm_roles:
                         role = sm.find_role(role_name)
@@ -33,19 +35,14 @@ class AuthOIDCView(AuthOIDView):
             if not roles:
                 roles.append(default)
             if user is None:
-                info = oidc.user_getinfo(
-                    ['preferred_username', 'given_name', 'family_name', 'email'])
-                user = sm.add_user(info.get('preferred_username'), info.get('given_name'),
-                                   info.get('family_name'), info.get('email'),
-                                   roles)
+                user = sm.add_user(
+                    infos['preferred_username'], infos['given_name'], infos['family_name'], infos['email'], roles)
             else:
-                info = oidc.user_getinfo(
-                    ['preferred_username', 'given_name', 'family_name', 'email'])
                 user.roles = roles
-                user.username = info.get('preferred_username')
-                user.first_name = info.get('given_name')
-                user.last_name = info.get('family_name')
-                user.email = info.get('email')
+                user.username = infos['preferred_username']
+                user.first_name = infos['given_name']
+                user.last_name = infos['family_name']
+                user.email = infos['email']
                 sm.update_user(user)
             login_user(user, remember=False)
             return redirect(self.appbuilder.get_url_for_index)
