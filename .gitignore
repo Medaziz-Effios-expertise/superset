@@ -111,4 +111,3 @@ docker/requirements-local.txt
 
 cache/
 superset/static/*
-superset/superset_config.py
