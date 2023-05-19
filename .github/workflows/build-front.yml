@@ -38,7 +38,7 @@ jobs:
       - name: Move build files
         run: |
           shopt -s nullglob
-          mv superset-frontend/build/* build/
+          cp -R superset-frontend/build/. build/
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
