@@ -55,7 +55,7 @@ const CssTemplatesList = lazy(
 const DashboardList = lazy(
   () =>
     import(
-      /* webpackChunkName: "DashboardList" */ 'src/views/CRUD/dashboard/DashboardList'
+      /* webpackChunkName: "DashboardList" */ 'custom/src/views/CRUD/dashboard/CustomDashboardList'
     ),
 );
 const DashboardRoute = lazy(

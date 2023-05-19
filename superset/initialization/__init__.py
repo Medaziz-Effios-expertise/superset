@@ -189,7 +189,10 @@ class SupersetAppInitializer:  # pylint: disable=too-many-public-methods
         )
         from superset.views.tags import TagView
         from superset.views.users.api import CurrentUserRestApi
-
+        # import custom apis, views ...
+        from superset.custom.api import CustomInitializer
+        custom_initializer = CustomInitializer()
+        custom_initializer.init_views()
         #
         # Setup API views
         #
