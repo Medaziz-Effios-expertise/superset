@@ -164,6 +164,8 @@ const IconFileNames = [
   'category',
   'undo',
   'redo',
+  'icon_home',
+  'icon_home_unselected',
 ];
 
 const iconOverrides: Record<string, React.FC<IconType>> = {};
