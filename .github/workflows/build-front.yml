@@ -36,7 +36,9 @@ jobs:
         run: mkdir build
 
       - name: Move build files
-        run: mv superset-frontend/build/* build/
+        run: |
+          shopt -s nullglob
+          mv superset-frontend/build/* build/
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
