@@ -29,14 +29,17 @@ jobs:
         working-directory: superset-frontend
         run: npm run build
 
-      - name: Move built files
-        working-directory: superset-frontend
-        run: |
-          mkdir -p $GITHUB_WORKSPACE/build-artifacts
-          mv build/* $GITHUB_WORKSPACE/build-artifacts
+      - name: Remove existing build directory
+        run: rm -rf build
+
+      - name: Create build directory
+        run: mkdir build
+
+      - name: Move build files
+        run: mv superset-frontend/build/* build/
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: superset-frontend
-          path: ./build-artifacts
+          path: ./build
