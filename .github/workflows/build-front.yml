@@ -30,7 +30,10 @@ jobs:
         run: npm run build
 
       - name: Move built files
-        run: mv superset-frontend/build build-artifacts
+        working-directory: superset-frontend
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/build-artifacts
+          mv build/* $GITHUB_WORKSPACE/build-artifacts
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
