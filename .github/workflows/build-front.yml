@@ -29,8 +29,11 @@ jobs:
         working-directory: superset-frontend
         run: npm run build
 
+      - name: Move built files
+        run: mv superset-frontend/build build-artifacts
+
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: superset-frontend
-          path: ./superset-frontend/build
+          path: ./build-artifacts
