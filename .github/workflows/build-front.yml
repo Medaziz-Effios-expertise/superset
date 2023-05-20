@@ -1,4 +1,4 @@
-name: Superset Frontend Build
+name: Upload
 
 on:
   push:
@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: superset-frontend
-          path: ./build
+          path: ${{ github.workspace }}/build
