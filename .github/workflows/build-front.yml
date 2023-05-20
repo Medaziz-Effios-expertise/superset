@@ -25,15 +25,15 @@ jobs:
         working-directory: superset-frontend
         run: npm ci
 
-      - name: Build Superset frontend
-        working-directory: superset-frontend
-        run: npm run build
-
       - name: Remove existing build directory
         run: rm -rf build
 
       - name: Create build directory
         run: mkdir build
+
+      - name: Build Superset frontend
+        working-directory: superset-frontend
+        run: npm run build --output build
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
