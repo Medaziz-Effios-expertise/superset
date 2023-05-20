@@ -1,4 +1,4 @@
-name: Upload
+name: Superset Frontend Build
 
 on:
   push:
@@ -29,19 +29,8 @@ jobs:
         working-directory: superset-frontend
         run: npm run build
 
-      - name: Remove existing build directory
-        run: rm -rf build
-
-      - name: Create build directory
-        run: mkdir build
-
-      - name: Move build files
-        run: |
-          shopt -s nullglob
-          cp -R $GITHUB_WORKSPACE/superset-frontend/build/. $GITHUB_WORKSPACE/build/
-
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: superset-frontend
-          path: ${{ github.workspace }}/build
+          path: superset-frontend/build
