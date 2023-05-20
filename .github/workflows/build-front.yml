@@ -38,7 +38,7 @@ jobs:
       - name: Move build files
         run: |
           shopt -s nullglob
-          cp -R build/. build/
+          cp -R $GITHUB_WORKSPACE/superset-frontend/build/. $GITHUB_WORKSPACE/build/
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
