@@ -33,7 +33,7 @@ jobs:
 
       - name: Build Superset frontend
         working-directory: superset-frontend
-        run: npm run build --output ../build
+        run: npm run build --output /build
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
