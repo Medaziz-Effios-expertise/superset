@@ -111,3 +111,4 @@ docker/requirements-local.txt
 
 cache/
 superset/static/*
+superset-frontend/custom/src/views/CRUD/dashboard/CustomDashboardCard.tsx

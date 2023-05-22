@@ -39,7 +39,7 @@ const packageConfig = require('./package');
 // input dir
 const APP_DIR = path.resolve(__dirname, './');
 // output dir
-const BUILD_DIR = path.resolve(__dirname, '/build');
+const BUILD_DIR = path.resolve(__dirname, '../superset/static/assets');
 const ROOT_DIR = path.resolve(__dirname, '..');
 
 const {

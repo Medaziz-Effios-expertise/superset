@@ -260,7 +260,7 @@ function DashboardList(props: DashboardListProps) {
     }
     catch (error) {
       const errorMessage = error?.response?.data?.message ?? '';
-      addDangerToast(`There was an unexpected issue setting the default dashboard: ${errorMessage}`);
+      addDangerToast(t(`There was an unexpected issue setting the default dashboard: ${errorMessage}`));
     };
 
   }
@@ -275,7 +275,7 @@ function DashboardList(props: DashboardListProps) {
       return dashboardId;
     } catch (error) {
       const errorMessage = error?.response?.data?.message || '';
-      addDangerToast(`There was an issue fetching the default dashboard: ${errorMessage}`);
+      addDangerToast(t(`There was an issue fetching the default dashboard: ${errorMessage}`));
       return null;
     }
   }
@@ -302,7 +302,7 @@ function DashboardList(props: DashboardListProps) {
   const handleCheckboxClick = useCallback(
     async (dashboardId: number) => {
       if (selectedDashboardId === dashboardId) {
-        const errorMessage = 'A default dashboard is required.';
+        const errorMessage = t('A default dashboard is required.');
         addDangerToast(errorMessage);
         return;
       }
@@ -327,7 +327,7 @@ function DashboardList(props: DashboardListProps) {
                 isStarred={favoriteStatus[id]}
               />
             ),
-          Header: 'Set favorite',
+          Header: t('Set favorite'),
           id: 'id',
           disableSortBy: true,
           size: 'xs',
@@ -335,7 +335,7 @@ function DashboardList(props: DashboardListProps) {
         },
         //start of custom componant
         {
-          Header: 'Set Home',
+          Header: t('Set Home'),
           id: 'set-home',
           disableSortBy: true,
           Cell: ({ row: { original } }: any) =>
