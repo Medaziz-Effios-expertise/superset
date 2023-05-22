@@ -33,8 +33,6 @@ jobs:
 
       - name: Build Superset frontend
         working-directory: superset-frontend
-        env:
-          BUILD_DIR: "build"
         run: npm run build
 
       - name: Archive build artifacts
