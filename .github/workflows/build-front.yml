@@ -26,10 +26,10 @@ jobs:
         run: npm ci
 
       - name: Remove existing build directory
-        run: rm -rf superset-frontend/build
+        run: rm -rf ${{ github.workspace }}/superset-frontend/build
 
       - name: Create build directory
-        run: mkdir superset-frontend/build
+        run: mkdir ${{ github.workspace }}/superset-frontend/build
 
       - name: Build Superset frontend
         working-directory: superset-frontend
@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: superset-frontend
-          path: superset-frontend/build
+          path: ${{ github.workspace }}/superset-frontend/build
 
   deploy:
     needs: build
