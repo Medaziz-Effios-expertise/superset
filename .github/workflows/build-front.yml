@@ -33,10 +33,19 @@ jobs:
 
       - name: Build Superset frontend
         working-directory: superset-frontend
-        run: npm run build --output /build
+        run: npm run build
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: superset-frontend
-          path: build
+          path: superset-frontend/build
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: superset-frontend
+          path: ${{ github.workspace }}/superset-frontend/build
+
+      - name: Move build artifacts to repository
+        run: mv ${{ github.workspace }}/superset-frontend/build superset-frontend/build
