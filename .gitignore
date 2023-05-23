@@ -110,5 +110,5 @@ messages.mo
 docker/requirements-local.txt
 
 cache/
-superset/static/*
+superset/static/built/*
 superset-frontend/custom/src/views/CRUD/dashboard/CustomDashboardCard.tsx
