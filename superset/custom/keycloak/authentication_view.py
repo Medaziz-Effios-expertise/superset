@@ -9,7 +9,7 @@ import urllib.parse
 
 class AuthOIDCView(AuthOIDView):
 
-    @expose('/login/', methods=['GET', 'POST'])
+    @expose('/login', methods=['GET', 'POST'])
     def login(self):
         sm = self.appbuilder.sm
         oidc = sm.oid
@@ -65,14 +65,16 @@ class AuthOIDCView(AuthOIDView):
     def logout(self):
         oidc = self.appbuilder.sm.oid
         logger = logging.getLogger(__name__)
-        logout_url = 'http://winhost:8080/realms/Superset-EFFIOS/protocol/openid-connect/logout'
+        logout_url = oidc.client_secrets['logout_uri']
         client_id = oidc.client_secrets['client_id']
         client_secret = oidc.client_secrets['client_secret']
         refresh_token = oidc.get_refresh_token()
         access_token = oidc.get_access_token()
+
+        # clear oidc context
         oidc.logout()
-        session.clear()
-        super(AuthOIDCView, self).logout()
+
+        # prapare and send logout request to KC
         data = {
             'client_id': client_id,
             'client_secret': client_secret,
@@ -83,12 +85,11 @@ class AuthOIDCView(AuthOIDView):
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': 'Bearer ' + access_token
         }
-
         response = requests.post(
             logout_url, data=encoded_data, headers=headers)
-        if response.status_code == 204:
-            logger.info('Keycloak Logout successful.')
-        else:
-            logger.warning('Logout failed. Status code:', response.status_code)
 
+        logger.info('Keycloak Logout ended with status_code %s.',
+                    response.status_code)
+        # clearing session and logging out
+        session.clear()
         return super(AuthOIDCView, self).logout()
