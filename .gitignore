@@ -113,3 +113,4 @@ cache/
 
 superset/static/*
 superset/superset_config.py
+superset-frontend/custom/src/views/CRUD/dashboard/CustomDashboardCard.tsx

@@ -1,7 +1,7 @@
 from flask_appbuilder.security.manager import AUTH_OID
 from flask_oidc import OpenIDConnect
 
-from superset.keycloak.authentication_view import AuthOIDCView
+from superset.custom.keycloak.authentication_view import AuthOIDCView
 from superset.security import SupersetSecurityManager
 
 
