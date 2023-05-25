@@ -39,7 +39,7 @@ class AuthOIDCView(AuthOIDView):
                         logger.warning(
                             f"Role '{role_name}' in Keycloak does not exist in Superset")
                         continue
-            if not roles:
+            if not user_roles:
                 user_roles.append(default_role)
             if not user:
                 user = sm.add_user(
