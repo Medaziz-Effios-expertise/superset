@@ -35,7 +35,6 @@ import setupApp from 'src/setup/setupApp';
 import { routes, isFrontendRoute } from 'src/views/routes';
 import { Logger } from 'src/logger/LogUtils';
 import { RootContextProviders } from './RootContextProviders';
-import Footer from 'src/components/Footer';
 
 setupApp();
 
@@ -78,9 +77,7 @@ const App = () => (
       </Switch>
       <ToastContainer />
     </RootContextProviders>
-    <Footer companyName="EFFIOS" />
   </Router>
-  
 );
 
 export default hot(App);

@@ -75,12 +75,18 @@ class ReportDataFormat(str, enum.Enum):
     VISUALIZATION = "PNG"
     DATA = "CSV"
     TEXT = "TEXT"
+    PDF = "PDF"
 
 
 class ReportCreationMethod(str, enum.Enum):
     CHARTS = "charts"
     DASHBOARDS = "dashboards"
     ALERTS_REPORTS = "alerts_reports"
+
+
+class ReportSourceFormat(str, enum.Enum):
+    CHART = "chart"
+    DASHBOARD = "dashboard"
 
 
 report_schedule_user = Table(

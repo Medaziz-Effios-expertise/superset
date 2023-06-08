@@ -21,7 +21,6 @@ from typing import Any, Dict, List, Optional
 from flask_appbuilder.models.sqla import Model
 from flask_appbuilder.security.sqla.models import User
 from marshmallow import ValidationError
-
 from superset.commands.base import CreateMixin
 from superset.dao.exceptions import DAOCreateFailedError
 from superset.databases.dao import DatabaseDAO
@@ -83,7 +82,8 @@ class CreateReportScheduleCommand(CreateMixin, BaseReportScheduleCommand):
         if report_type == ReportScheduleType.ALERT:
             database_id = self._properties.get("database")
             if not database_id:
-                exceptions.append(ReportScheduleAlertRequiredDatabaseValidationError())
+                exceptions.append(
+                    ReportScheduleAlertRequiredDatabaseValidationError())
             else:
                 database = DatabaseDAO.find_by_id(database_id)
                 if not database:
@@ -135,5 +135,6 @@ class CreateReportScheduleCommand(CreateMixin, BaseReportScheduleCommand):
         ]
         if invalid_tab_ids:
             exceptions.append(
-                ValidationError(f"Invalid tab IDs selected: {invalid_tab_ids}", "extra")
+                ValidationError(
+                    f"Invalid tab IDs selected: {invalid_tab_ids}", "extra")
             )

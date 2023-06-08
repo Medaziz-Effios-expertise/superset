@@ -17,11 +17,13 @@
 import json
 import logging
 from datetime import datetime, timedelta
+from io import BytesIO
 from typing import Any, List, Optional
 from uuid import UUID
 
 import pandas as pd
 from celery.exceptions import SoftTimeLimitExceeded
+from PIL import Image
 from flask_appbuilder.security.sqla.models import User
 from sqlalchemy.orm import Session
 
@@ -212,16 +214,14 @@ class BaseReportState:
                 )
             ]
         else:
-            print("in _get_screenshots : dashboard")
-            tabs: Optional[List[str]] = json.loads(
-                self._report_schedule.extra).get("dashboard_tab_ids", None)
+            tabs: Optional[List[str]] = json.loads(self._report_schedule.extra).get(
+                "dashboard_tab_ids", None
+            )
             dashboard_base_url = self._get_url()
             if tabs is None:
                 urls = [dashboard_base_url]
-                print('im in single url :', urls)
             else:
                 urls = [f"{dashboard_base_url}#{tab_id}" for tab_id in tabs]
-                print('im in multiple urls :', urls)
             screenshots = [
                 DashboardScreenshot(
                     url,
@@ -247,6 +247,21 @@ class BaseReportState:
         if not image_data:
             raise ReportScheduleScreenshotFailedError()
         return image_data
+
+    def get_pdf(self) -> Optional[bytes]:
+        images = []
+        snapshots = self._get_screenshots()
+
+        for snap in snapshots:
+            img = Image.open(BytesIO(snap))
+            if img.mode == "RGBA":
+                img = img.convert("RGB")
+            images.append(img)
+
+        new_pdf = BytesIO()
+        images[0].save(new_pdf, "PDF", save_all=True, append_images=images[1:])
+        new_pdf.seek(0)
+        return new_pdf.read()
 
     def _get_csv_data(self) -> bytes:
         url = self._get_url(result_format=ChartDataResultFormat.CSV)

@@ -128,7 +128,8 @@ class ReportSchedulePostSchema(Schema):
         description=type_description,
         allow_none=False,
         required=True,
-        validate=validate.OneOf(choices=tuple(key.value for key in ReportScheduleType)),
+        validate=validate.OneOf(choices=tuple(
+            key.value for key in ReportScheduleType)),
     )
     name = fields.String(
         description=name_description,
@@ -170,7 +171,8 @@ class ReportSchedulePostSchema(Schema):
         description=creation_method_description,
     )
     dashboard = fields.Integer(required=False, allow_none=True)
-    selected_tabs = fields.List(fields.Integer(), required=False, allow_none=True)
+    selected_tabs = fields.List(
+        fields.Integer(), required=False, allow_none=True)
     database = fields.Integer(required=False)
     owners = fields.List(fields.Integer(description=owners_description))
     validator_type = fields.String(
@@ -201,7 +203,8 @@ class ReportSchedulePostSchema(Schema):
     recipients = fields.List(fields.Nested(ReportRecipientSchema))
     report_format = fields.String(
         default=ReportDataFormat.VISUALIZATION,
-        validate=validate.OneOf(choices=tuple(key.value for key in ReportDataFormat)),
+        validate=validate.OneOf(choices=tuple(
+            key.value for key in ReportDataFormat)),
     )
     extra = fields.Dict(
         default=None,
@@ -215,7 +218,8 @@ class ReportSchedulePostSchema(Schema):
         if data["type"] == ReportScheduleType.REPORT:
             if "database" in data:
                 raise ValidationError(
-                    {"database": ["Database reference is not allowed on a report"]}
+                    {"database": [
+                        "Database reference is not allowed on a report"]}
                 )
 
 
@@ -223,7 +227,8 @@ class ReportSchedulePutSchema(Schema):
     type = fields.String(
         description=type_description,
         required=False,
-        validate=validate.OneOf(choices=tuple(key.value for key in ReportScheduleType)),
+        validate=validate.OneOf(choices=tuple(
+            key.value for key in ReportScheduleType)),
     )
     name = fields.String(
         description=name_description, required=False, validate=[Length(1, 150)]
@@ -263,7 +268,8 @@ class ReportSchedulePutSchema(Schema):
     )
     dashboard = fields.Integer(required=False, allow_none=True)
     database = fields.Integer(required=False)
-    owners = fields.List(fields.Integer(description=owners_description), required=False)
+    owners = fields.List(fields.Integer(
+        description=owners_description), required=False)
     validator_type = fields.String(
         description=validator_type_description,
         validate=validate.OneOf(
@@ -272,7 +278,8 @@ class ReportSchedulePutSchema(Schema):
         allow_none=True,
         required=False,
     )
-    validator_config_json = fields.Nested(ValidatorConfigJSONSchema, required=False)
+    validator_config_json = fields.Nested(
+        ValidatorConfigJSONSchema, required=False)
     log_retention = fields.Integer(
         description=log_retention_description,
         example=90,
@@ -292,9 +299,14 @@ class ReportSchedulePutSchema(Schema):
         required=False,
         validate=[Range(min=1, error=_("Value must be greater than 0"))],
     )
-    recipients = fields.List(fields.Nested(ReportRecipientSchema), required=False)
+    recipients = fields.List(fields.Nested(
+        ReportRecipientSchema), required=False)
     report_format = fields.String(
         default=ReportDataFormat.VISUALIZATION,
-        validate=validate.OneOf(choices=tuple(key.value for key in ReportDataFormat)),
+        validate=validate.OneOf(choices=tuple(
+            key.value for key in ReportDataFormat)),
     )
     force_screenshot = fields.Boolean(default=False)
+    extra = fields.Dict(
+        default=None,
+    )

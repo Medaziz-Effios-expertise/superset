@@ -18,17 +18,17 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { styled, t } from '@superset-ui/core';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {styled, t} from '@superset-ui/core';
 
-import { EmptyStateMedium } from 'src/components/EmptyState';
+import {EmptyStateMedium} from 'src/components/EmptyState';
 import EditableTitle from 'src/components/EditableTitle';
-import { setEditMode } from 'src/dashboard/actions/dashboardState';
+import {setEditMode} from 'src/dashboard/actions/dashboardState';
 import DashboardComponent from 'src/dashboard/containers/DashboardComponent';
 import AnchorLink from 'src/dashboard/components/AnchorLink';
 import DragDroppable from 'src/dashboard/components/dnd/DragDroppable';
-import { componentShape } from 'src/dashboard/util/propShapes';
+import {componentShape} from 'src/dashboard/util/propShapes';
 
 export const RENDER_TAB = 'RENDER_TAB';
 export const RENDER_TAB_CONTENT = 'RENDER_TAB_CONTENT';
@@ -63,31 +63,35 @@ const propTypes = {
 const defaultProps = {
   availableColumnCount: 0,
   columnWidth: 0,
-  onDropOnTab() {},
-  onResizeStart() {},
-  onResize() {},
-  onResizeStop() {},
+  onDropOnTab() {
+  },
+  onResizeStart() {
+  },
+  onResize() {
+  },
+  onResizeStop() {
+  },
 };
 
 const TabTitleContainer = styled.div`
-  ${({ isHighlighted, theme: { gridUnit, colors } }) => `
+  ${({isHighlighted, theme: {gridUnit, colors}}) => `
     padding: ${gridUnit}px ${gridUnit * 2}px;
     margin: ${-gridUnit}px ${gridUnit * -2}px;
     transition: box-shadow 0.2s ease-in-out;
     ${
-      isHighlighted && `box-shadow: 0 0 ${gridUnit}px ${colors.primary.light1};`
-    }
+    isHighlighted && `box-shadow: 0 0 ${gridUnit}px ${colors.primary.light1};`
+  }
   `}
 `;
 
 const renderDraggableContentBottom = dropProps =>
   dropProps.dropIndicatorProps && (
-    <div className="drop-indicator drop-indicator--bottom" />
+    <div className="drop-indicator drop-indicator--bottom"/>
   );
 
 const renderDraggableContentTop = dropProps =>
   dropProps.dropIndicatorProps && (
-    <div className="drop-indicator drop-indicator--top" />
+    <div className="drop-indicator drop-indicator--top"/>
   );
 
 class Tab extends React.PureComponent {
@@ -99,12 +103,12 @@ class Tab extends React.PureComponent {
     this.handleChangeTab = this.handleChangeTab.bind(this);
   }
 
-  handleChangeTab({ pathToTabIndex }) {
+  handleChangeTab({pathToTabIndex}) {
     this.props.setDirectPathToChild(pathToTabIndex);
   }
 
   handleChangeText(nextTabText) {
-    const { updateComponents, component } = this.props;
+    const {updateComponents, component} = this.props;
     if (nextTabText && nextTabText !== component.meta.text) {
       updateComponents({
         [component.id]: {
@@ -265,7 +269,7 @@ class Tab extends React.PureComponent {
         onDrop={this.handleDrop}
         editMode={editMode}
       >
-        {({ dropIndicatorProps, dragSourceRef }) => (
+        {({dropIndicatorProps, dragSourceRef}) => (
           <TabTitleContainer
             isHighlighted={isHighlighted}
             className="dragdroppable-tab"
@@ -296,7 +300,7 @@ class Tab extends React.PureComponent {
   }
 
   render() {
-    const { renderType } = this.props;
+    const {renderType} = this.props;
     return renderType === RENDER_TAB
       ? this.renderTab()
       : this.renderTabContent();
