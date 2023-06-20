@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Mentions Legales</title>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <link rel="icon" type="image/png" href="../assets/images/Ministry_logo.ico" />
+</head>
+<!-- Custom CSS -->
+<style>
+  /* General */
+
+  * {
+    box-sizing: border-box;
+    font-family: "Marianne";
+    font-size: 18px;
+  }
+
+  .table-striped th a {
+    color: #000 !important;
+  }
+
+  .full_txt {
+    display: none;
+  }
+
+  .filtration {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 10px 0 20px 0;
+  }
+
+  .filtration select,
+  .filtration input,
+  .filtration button {
+    height: 33px !important;
+    border-radius: 5px !important;
+    border: 1px solid !important;
+  }
+
+  .filtration button {
+    background-color: #007bff;
+    color: #ffff;
+    width: 60px !important;
+  }
+
+  .filtration button:hover {
+    cursor: pointer;
+  }
+
+  @media print {
+    textarea.form-control {
+      display: none;
+    }
+
+    .full_txt {
+      display: block;
+    }
+  }
+
+  body {
+    margin: 0;
+    height: 100vh;
+    background-color: #ffffff;
+  }
+
+  /* ====== Header ====== */
+
+  #top,
+  #down {
+    cursor: pointer;
+  }
+
+  #top:hover,
+  #down:hover {
+    color: #a4a4ff;
+  }
+
+  header {
+    background-color: #ffffff;
+  }
+
+  .title1-site-banner {
+    text-align: center;
+    background-color: #1a9cb9;
+    margin: 0;
+    padding: 11px;
+    color: #ffff;
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+  .title2-site-banner {
+    background-color: #1a9cb9;
+    padding: 11px;
+    text-align: center;
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    color: white;
+    font-weight: 400;
+  }
+
+  .image-site-banner-right {
+    max-height: 100px;
+    width: auto;
+    margin-right: 15px;
+  }
+
+  .images-container-site-banner {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  /* Footer */
+
+  .page_footer {
+    border-top: 2px solid #1a9cb9;
+    width: 100%;
+    background-color: #1a9cb9;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  @media (max-width: 1450px) {
+    .page_footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+
+  /* ====== PAGE du formulaire ======*/
+
+  .titre_form,
+  h4 {
+    font-size: 1.25rem !important;
+    margin: 20px 0 40px 0 !important;
+    color: #1a9cb9;
+    font-weight: 600;
+    font-style: normal !important;
+  }
+
+  h4 {
+    border-bottom: 2px solid #1a9cb9;
+    width: 100%;
+    display: block;
+    padding-bottom: 10px;
+    margin-top: 40px !important;
+  }
+
+  /* Legal */
+
+  .legal,
+  .rgpd {
+    width: 80%;
+    margin: auto;
+  }
+</style>
+
+<body>
+  <header style="background-color: white">
+    <div class="images-container-site-banner">
+      <img class="image-site-banner-right" src="../assets/images/Ministry_logo.png" />
+    </div>
+
+    <h1 class="title1-site-banner">Déclaration EFFIOS-SUPERSET</h1>
+    <br />
+  </header>
+  <div style="display: flex; justify-content: flex-end; margin-right: 50px">
+    <a class="btn btn-primary" href="/" style="background-color: #11a7e7; border-color: #11a7e7"><i
+        class="fa fa-home"></i> Accueil</a>
+  </div>
+  <div class="legal">
+    <div>
+      <h4>1. Éditeur</h4>
+      <p>
+        Ministère de l’Éducation nationale<br />Direction du numérique pour
+        l'éducation (DNE)<br />110 rue de Grenelle 75007 Paris<br />Téléphone
+        : +33 1 55 55 10 10<br />FAX : +33 1 55 55 38 54
+      </p>
+    </div>
+
+    <div>
+      <h4>2. Propriété intellectuelle</h4>
+      <p>
+        La présentation et le contenu du site EFFIOS-SUPERSET -
+        <a href="http://gar-conformiteapplicative.effios.fr/" target="_blank">link</a>
+        - constituent une œuvre protégée par la législation française relative
+        à la propriété intellectuelle dont le Ministère de l’éducation
+        nationale est titulaire.
+      </p>
+
+      <p style="font-weight: 900">Marques et logos</p>
+      <p>
+        Toute reproduction et/ou utilisation sans l’accord préalable des
+        détenteurs de droits engagerait la responsabilité de l’utilisateur et
+        constituerait une contrefaçon sanctionnée par les peines prévues aux
+        articles L.335-2, L.713-2, L.713-3 et L.716-1 du Code de la propriété
+        intellectuelle. Seules les reproductions et utilisations des marques
+        et logos présents sur le site aux fins exclusives d’information
+        pédagogique, pourront être effectuées sans autorisation préalable.
+      </p>
+      <p>
+        Les marques et logos figurant sur le présent site sont la propriété de
+        Ministère de l’éducation nationale ou de tiers ; ils ne doivent pas
+        être utilisés sans le consentement écrit et préalable du propriétaire
+        de la marque (art. L. 713-2 du Code de la propriété intellectuelle).
+      </p>
+      <p style="font-weight: 900">
+        Droits de reproduction des documents publics ou officiels
+      </p>
+      <p>
+        Depuis la publication de l'ordonnance n° 2005-650 du 6 juin 2005
+        relative à la liberté d'accès aux documents administratifs et à la
+        réutilisation des informations publiques, ces informations peuvent
+        être réutilisées à d'autres fins que celles pour lesquelles elles ont
+        été produites, et particulièrement les informations faisant l'objet
+        d'une diffusion publique. Les documents publics ou officiels ne sont
+        couverts par aucun droit d'auteur et peuvent donc être reproduits
+        librement. Le graphisme, l'iconographie ainsi que le contenu éditorial
+        demeurent la propriété du Ministère de l’éducation nationale et, à ce
+        titre, font l'objet des protections prévues par le Code de la
+        propriété intellectuelle.
+      </p>
+      <p>
+        L'article L.122-5 du code de la propriété intellectuelle pose le
+        principe selon lequel, "lorsque l'œuvre a été divulguée, l'auteur ne
+        peut interdire la diffusion, même intégrale, par la voie de presse ou
+        de télédiffusion, à titre d'information d'actualité, des discours
+        destinés au public prononcés dans les assemblées politiques, (...),
+        ainsi que dans les réunions publiques d'ordre politique et les
+        cérémonies officielles".
+      </p>
+      <p>
+        Si la reprise de ces contenus de façon partielle ou intégrale est
+        autorisée, elle doit être obligatoirement assortie de la mention du
+        nom de l'auteur, de la source, et éventuellement d'un lien renvoyant
+        vers le document original en ligne sur le site. Tous les autres
+        contenus présents sur le site sont couverts par le droit d'auteur.
+        Toute reprise est dès lors conditionnée à l'accord de l'auteur en
+        vertu de l'article L.122-4 du Code de la propriété Intellectuelle. Les
+        informations utilisées ne doivent l'être qu'à des fins personnelles,
+        associatives ou professionnelles ; toute diffusion ou utilisation à
+        des fins commerciales ou publicitaires étant interdites.
+      </p>
+    </div>
+
+    <div>
+      <h4>3. Données à caractère personnel</h4>
+      <p>
+        Les informations relatives aux données à caractère personnel sont
+        détaillées dans la rubrique
+        <a href="/rgpd" target="_blank">Mentions informatives RGPD.</a>
+      </p>
+    </div>
+
+    <div>
+      <h4>4. Accès au site « EFFIOS-SUPERSET »</h4>
+      <p>
+        L'utilisateur de ce présent site reconnaît disposer des autorisations,
+        de la compétence et des moyens nécessaires pour accéder et utiliser ce
+        site.
+      </p>
+      <p>
+        Les auteurs du présent site ne sauraient être tenus responsables des
+        dommages directs ou indirects qui résulteraient de l'utilisation de ce
+        site et des dommages matériels, perte de données ou de programme,
+        résultant de l'accès ou de l'utilisation de ce site ou de tous sites
+        qui lui sont liés.
+      </p>
+      <p>
+        Il est rappelé que le fait d'accéder ou de se maintenir
+        frauduleusement dans un système informatique, d'entraver ou de fausser
+        le fonctionnement d'un tel système, d'introduire ou de modifier
+        frauduleusement des données dans un système informatique constituent
+        des délits passibles de sanctions pénales.
+      </p>
+      <p></p>
+    </div>
+
+    <div>
+      <h4>5. Fonctionnement du site</h4>
+      <p>
+        Pour toute demande ou sollicitation concernant le fonctionnement du
+        présent site, vous pouvez adresser un courrier électronique à
+        gar-di-en@effios.fr.
+      </p>
+    </div>
+
+    <div>
+      <h4>6. Clause attributive de compétence</h4>
+      <p>
+        Le présent site est soumis à la loi française. En cas de litige, les
+        tribunaux français seront seuls compétents.
+      </p>
+    </div>
+
+    <div>
+      <h4>7. Modifications des mentions légales</h4>
+      <p>
+        Les mentions légales peuvent être modifiées à tout moment. Ces
+        modifications sont publiées par leur mise en ligne et sont réputées
+        acceptées sans réserve lorsque vous accédez au site postérieurement à
+        leur mise en ligne. Nous vous recommandons de consulter régulièrement
+        la présente page.
+      </p>
+    </div>
+
+    <div>
+      <h4>8. Hébergement</h4>
+      <p>Société OVH</p>
+      <p>2 rue Kellermann 59100 Roubaix, France</p>
+      <p>Téléphone : +33 (0)8 99 70 17 61</p>
+      <p><a href="www.ovh.com" target="_blank">www.ovh.com</a></p>
+    </div>
+  </div>
+  <footer>
+    <div class="page_footer">
+      <a href="legal.html" style="color: white">Mentions Légales</a>
+      <a href="rgpd.html" style="color: white">Mentions RGPD</a>
+    </div>
+  </footer>
+</body>
+
+</html>

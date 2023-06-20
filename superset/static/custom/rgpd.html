@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Mentions RGPD</title>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <link rel="icon" type="image/png" href="../assets/images/Ministry_logo.ico" />
+</head>
+<!-- Custom CSS -->
+<style>
+  /* General */
+
+  * {
+    box-sizing: border-box;
+    font-family: "Marianne";
+    font-size: 18px;
+  }
+
+  .table-striped th a {
+    color: #000 !important;
+  }
+
+  .full_txt {
+    display: none;
+  }
+
+  .filtration {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 10px 0 20px 0;
+  }
+
+  .filtration select,
+  .filtration input,
+  .filtration button {
+    height: 33px !important;
+    border-radius: 5px !important;
+    border: 1px solid !important;
+  }
+
+  .filtration button {
+    background-color: #007bff;
+    color: #ffff;
+    width: 60px !important;
+  }
+
+  .filtration button:hover {
+    cursor: pointer;
+  }
+
+  @media print {
+    textarea.form-control {
+      display: none;
+    }
+
+    .full_txt {
+      display: block;
+    }
+  }
+
+  body {
+    margin: 0;
+    height: 100vh;
+    background-color: #ffffff;
+  }
+
+  /* ====== Header ====== */
+
+  #top,
+  #down {
+    cursor: pointer;
+  }
+
+  #top:hover,
+  #down:hover {
+    color: #a4a4ff;
+  }
+
+  header {
+    background-color: #ffffff;
+  }
+
+  .title1-site-banner {
+    text-align: center;
+    background-color: #1a9cb9;
+    margin: 0;
+    padding: 11px;
+    color: #ffff;
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+  .title2-site-banner {
+    background-color: #1a9cb9;
+    padding: 11px;
+    text-align: center;
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    color: white;
+    font-weight: 400;
+  }
+
+  .image-site-banner-right {
+    max-height: 100px;
+    width: auto;
+    margin-right: 15px;
+  }
+
+  .images-container-site-banner {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  /* Footer */
+
+  .page_footer {
+    border-top: 2px solid #1a9cb9;
+    width: 100%;
+    background-color: #1a9cb9;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  @media (max-width: 1450px) {
+    .page_footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+
+  /* ====== PAGE du formulaire ======*/
+
+  .titre_form,
+  h4 {
+    font-size: 1.25rem !important;
+    margin: 20px 0 40px 0 !important;
+    color: #1a9cb9;
+    font-weight: 600;
+    font-style: normal !important;
+  }
+
+  h4 {
+    border-bottom: 2px solid #1a9cb9;
+    width: 100%;
+    display: block;
+    padding-bottom: 10px;
+    margin-top: 40px !important;
+  }
+
+  /* Legal */
+
+  .legal,
+  .rgpd {
+    width: 80%;
+    margin: auto;
+  }
+</style>
+
+<body>
+  <header>
+    <div class="images-container-site-banner">
+      <a href="/"><img class="image-site-banner-right" src="../assets/images/Ministry_logo.png" /></a>
+    </div>
+
+    <h1 class="title1-site-banner">Déclaration EFFIOS-SUPERSET</h1>
+    <br />
+  </header>
+  <div style="display: flex; justify-content: flex-end; margin-right: 50px;"">
+      <a class=" btn btn-primary" href="/" style="background-color: #11a7e7; border-color: #11a7e7;"><i
+      class="fa fa-home"></i> Accueil</a>
+  </div>
+  <div class="rgpd">
+    <div>
+      <h4>Préambule</h4>
+      <p style="font-weight: 900">
+        Le ministère assure la protection des données personnelles pour les
+        accès aux ressources produites pour les élèves et les enseignants.
+      </p>
+      <p>
+        Le Ministère de l'éducation nationale pour permettre l’accès des
+        élèves et des enseignants à leurs ressources numériques et services
+        associés via un espace numérique de travail, met en œuvre en tant que
+        responsable, un traitement de données à caractère personnel dénommé «
+        Gestionnaire d’accès aux ressources » (GAR).
+      </p>
+      <p>
+        Le GAR constitue un traitement de données à caractère personnel mis en
+        œuvre par le ministère de chargé de l’éducation nationale (110 Rue de
+        Grenelle 75007 Paris) pour l’exécution d’une mission d’intérêt public
+        au sens de l’article 6 du règlement général (UE) 2016/679 du Parlement
+        européen et du Conseil du 27 avril 2016 sur la protection des données
+        (RGPD).
+      </p>
+      <p>
+        Le ministère chargé de l’éducation nationale s’engage à traiter vos
+        données à caractère personnel dans le respect de la loi n°78-17 du 6
+        janvier 1978 modifiée relative à l'informatique, aux fichiers et aux
+        libertés et du RGPD.
+      </p>
+      <p>
+        Le ministère met en œuvre le respect de la minimisation des données
+        personnelles, vérifie leur proportionnalité pour le fonctionnement des
+        ressources numériques et vérifie les conditions de sécurité et
+        d'hébergement des données appliquées par les éditeurs destinataires de
+        ces données.
+      </p>
+      <p>
+        Les informations relatives aux données à caractère personnel sont
+        détaillées dans les
+        <a href="https://gar.education.fr/mentions-informatives-rgpd/mentions-informatives-rgpd-2335.kjsp?RH=1410660055748"
+          target="_blank">
+          mentions informatives RGPD du GAR.</a>
+      </p>
+    </div>
+
+    <div>
+      <h4>Données à caractère personnel</h4>
+      <p>
+        Les données recueillies dans le cadre du formulaire de déclaration de
+        conformité applicative sont traitées conformément au cadre contractuel
+        régit par le Contrat GAR et son annexe RGPD liant le partenaire et le
+        ministère chargé de l’éducation nationale.
+      </p>
+      <p>
+        Les données traitées sont obligatoires pour pouvoir procéder à
+        l’initialisation des partenaires dans le cadre du GAR.
+      </p>
+      <p>
+        Ces données constituent des informations administratives et techniques
+        relatives :
+      </p>
+      <p>- à la structure du partenaire ;</p>
+      <p>
+        - au fonctionnement de la ressource mise à disposition par le
+        partenaire dans le GAR.
+      </p>
+      <p></p>
+    </div>
+
+    <div>
+      <h4>Destinataires des données</h4>
+      <p>
+        Sont destinataires des données traitées les services compétents du
+        ministère de l’éducation nationale et ses sous-traitants, dans la
+        limite de leur besoin d’en connaître.
+      </p>
+      <p style="font-weight: 900">
+        Les données à caractère personnel sont conservées pour les durées
+        suivantes
+      </p>
+      <p>
+        S’agissant des fournisseurs de ressources, des exploitants ENT et des
+        porteurs de projets :
+      </p>
+      <p>
+        - les données sont conservées pour la durée du contrat les liant au
+        Ministère ;
+      </p>
+      <p>
+        - les données de connexion (logs et adresse IP, traces des accès,
+        consultations, créations et modifications de données) sont conservées
+        pour une durée de douze mois.
+      </p>
+      <p></p>
+    </div>
+
+    <div>
+      <h4>Droit des personnes</h4>
+      <p>
+        Les personnes dont les données sont traitées disposent d’un droit
+        d’information, d’accès, de rectification des données les concernant,
+        ainsi que d’un droit d’opposition et d'un droit à la limitation du
+        traitement. Vous pouvez accéder aux données vous concernant et exercer
+        les droits d’accès, de rectification et de limitation que vous tenez
+        des articles 15, 16 et 18 du RGPD, à l’adresse suivante :
+        dne-gar@education.gouv.fr
+      </p>
+      <p>
+        Pour toute question concernant le traitement de vos données à
+        caractère personnel, vous pouvez également contacter le délégué à la
+        protection des données du ministère de l’éducation nationale :
+      </p>
+      <p>- à l’adresse électronique suivante : dpd@education.gouv.fr</p>
+      <p>
+        - via le formulaire de saisine en ligne :
+        <a
+          href="http://education.gouv.fr/pid33441/nous-contacter.html#RGPD">www.education.gouv.fr/pid33441/nous-contacter.html#RGPD</a>
+      </p>
+      <p>- ou par courrier en vous adressant au :</p>
+      <p>
+        Délégué à la protection des données (DPD) du ministère de chargé de
+        l’éducation nationale
+      </p>
+      <p>110, rue de Grenelle 75357 Paris Cedex 07</p>
+      <p>
+        Si vous estimez, même après avoir introduit une réclamation auprès du
+        ministère chargé de l’éducation nationale, que vos droits en matière
+        de protection des données à caractère personnel ne sont pas respectés,
+        vous avez la possibilité d’introduire une réclamation auprès de la
+        Commission nationale de l’informatique et des libertés (CNIL) à
+        l’adresse suivante : 3 Place de Fontenoy – TSA 80715 – 75334 Paris
+        Cedex 07. Dans le cadre de l’exercice de vos droits, vous devez
+        justifier de votre identité par tout moyen. En cas de doute sur votre
+        identité, les services chargés du droit d’accès et le délégué à la
+        protection des données se réservent le droit de vous demander les
+        informations supplémentaires qui leur apparaissent nécessaires, y
+        compris la photocopie d’un titre d’identité portant votre signature.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="page_footer">
+      <a href="legal.html" style="color:white ">Mentions Légales</a>
+      <a href="rgpd.html" style="color:white ">Mentions RGPD</a>
+    </div>
+  </footer>
+</body>
+
+</html>
