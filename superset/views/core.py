@@ -1844,8 +1844,6 @@ class Superset(BaseSupersetView):  # pylint: disable=too-many-public-methods
         if not dashboard:
             abort(404)
 
-        assert dashboard is not None
-
         has_access_ = False
         for datasource in dashboard.datasources:
             datasource = DatasourceDAO.get_datasource(

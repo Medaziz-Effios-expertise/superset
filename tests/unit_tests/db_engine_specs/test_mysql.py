@@ -165,13 +165,13 @@ def test_validate_database_uri(sqlalchemy_uri: str, error: bool) -> None:
         ),
     ],
 )
-def test_adjust_engine_params(
+def test_adjust_database_uri(
     sqlalchemy_uri: str, connect_args: Dict[str, Any], returns: Dict[str, Any]
 ) -> None:
     from superset.db_engine_specs.mysql import MySQLEngineSpec
 
     url = make_url(sqlalchemy_uri)
-    returned_url, returned_connect_args = MySQLEngineSpec.adjust_engine_params(
+    returned_url, returned_connect_args = MySQLEngineSpec.adjust_database_uri(
         url, connect_args
     )
     assert returned_connect_args == returns

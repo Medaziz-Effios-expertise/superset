@@ -1000,8 +1000,9 @@ class BaseEngineSpec:  # pylint: disable=too-many-public-methods
     def adjust_database_uri(  # pylint: disable=unused-argument
         cls,
         uri: URL,
-        selected_schema: Optional[str],
-    ) -> URL:
+        connect_args: Dict[str, Any],
+        selected_schema: Optional[str] = None,
+    ) -> Tuple[URL, Dict[str, Any]]:
         """
         Return a modified URL with a new database component.
 
