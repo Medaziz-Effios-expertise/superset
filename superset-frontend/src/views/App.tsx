@@ -42,6 +42,7 @@ import { RootContextProviders } from './RootContextProviders';
 import { ScrollToTop } from './ScrollToTop';
 import QueryProvider from './QueryProvider';
 import Footer from '../../custom/src/components/Footer';
+
 setupApp();
 setupPlugins();
 setupExtensions();
