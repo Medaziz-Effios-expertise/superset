@@ -16,9 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import {TimeLocaleDefinition} from 'd3-time-format';
-import {OverwritePolicy, RegistryWithDefaultKey} from '../models';
-import TimeFormats, {LOCAL_PREFIX} from './TimeFormats';
+import { TimeLocaleDefinition } from 'd3-time-format';
+import { OverwritePolicy, RegistryWithDefaultKey } from '../models';
+import TimeFormats, { LOCAL_PREFIX } from './TimeFormats';
 import createD3TimeFormatter from './factories/createD3TimeFormatter';
 import TimeFormatter from './TimeFormatter';
 
