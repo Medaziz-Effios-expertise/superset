@@ -34,7 +34,7 @@ const FR_D3_TIME_FORMAT: TimeLocaleDefinition = {
     'mercredi',
     'jeudi',
     'vendredi',
-    'samedi'
+    'samedi',
   ],
   shortDays: ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'],
   months: [
@@ -49,7 +49,7 @@ const FR_D3_TIME_FORMAT: TimeLocaleDefinition = {
     'septembre',
     'octobre',
     'novembre',
-    'décembre'
+    'décembre',
   ],
   shortMonths: [
     'janv.',
@@ -63,7 +63,7 @@ const FR_D3_TIME_FORMAT: TimeLocaleDefinition = {
     'sept.',
     'oct.',
     'nov.',
-    'déc.'
+    'déc.',
   ]
 };
 export default class TimeFormatterRegistry extends RegistryWithDefaultKey<
