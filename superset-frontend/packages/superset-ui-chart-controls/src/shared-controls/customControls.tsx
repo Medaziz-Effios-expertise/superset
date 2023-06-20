@@ -46,14 +46,20 @@ export const contributionModeControl = {
   },
 };
 
+function isTemporal(controls: ControlStateMapping): boolean {
+  return !(
+    isDefined(controls?.x_axis?.value) &&
+    !isTemporalColumn(
+      getColumnLabel(controls?.x_axis?.value as QueryFormColumn),
+      controls?.datasource?.datasource,
+    )
+  );
+}
+
 const xAxisSortVisibility = ({ controls }: { controls: ControlStateMapping }) =>
-  isDefined(controls?.x_axis?.value) &&
-  !isTemporalColumn(
-    getColumnLabel(controls?.x_axis?.value as QueryFormColumn),
-    controls?.datasource?.datasource,
-  ) &&
-  Array.isArray(controls?.groupby?.value) &&
-  controls.groupby.value.length === 0;
+  !isTemporal(controls) &&
+  ensureIsArray(controls?.groupby?.value).length === 0 &&
+  ensureIsArray(controls?.metrics?.value).length === 1;
 
 export const xAxisSortControl = {
   name: 'x_axis_sort',

@@ -91,20 +91,30 @@ describe('extractSeries', () => {
         abc: 5,
       },
     ];
-    expect(extractSeries(data, { xAxis: 'x', removeNulls: true })).toEqual([
-      {
-        id: 'Hulk',
-        name: 'Hulk',
-        data: [[2, 1]],
-      },
-      {
-        id: 'abc',
-        name: 'abc',
-        data: [
-          [1, 2],
-          [2, 5],
-        ],
-      },
+    const totalStackedValues = [3, 12, 8];
+    expect(
+      extractSeries(data, {
+        totalStackedValues,
+        xAxis: 'x',
+        removeNulls: true,
+      }),
+    ).toEqual([
+      [
+        {
+          id: 'Hulk',
+          name: 'Hulk',
+          data: [[2, 1]],
+        },
+        {
+          id: 'abc',
+          name: 'abc',
+          data: [
+            [1, 2],
+            [2, 5],
+          ],
+        },
+      ],
+      totalStackedValues,
     ]);
   });
 
@@ -151,23 +161,29 @@ describe('extractSeries', () => {
         abc: null,
       },
     ];
-    expect(extractSeries(data, { fillNeighborValue: 0 })).toEqual([
-      {
-        id: 'abc',
-        name: 'abc',
-        data: [
-          ['2000-01-01', null],
-          ['2000-02-01', 0],
-          ['2000-03-01', 1],
-          ['2000-04-01', 0],
-          ['2000-05-01', null],
-          ['2000-06-01', 0],
-          ['2000-07-01', 2],
-          ['2000-08-01', 3],
-          ['2000-09-01', 0],
-          ['2000-10-01', null],
-        ],
-      },
+    const totalStackedValues = [0, 0, 1, 0, 0, 0, 2, 3, 0, 0];
+    expect(
+      extractSeries(data, { totalStackedValues, fillNeighborValue: 0 }),
+    ).toEqual([
+      [
+        {
+          id: 'abc',
+          name: 'abc',
+          data: [
+            ['2000-01-01', null],
+            ['2000-02-01', 0],
+            ['2000-03-01', 1],
+            ['2000-04-01', 0],
+            ['2000-05-01', null],
+            ['2000-06-01', 0],
+            ['2000-07-01', 2],
+            ['2000-08-01', 3],
+            ['2000-09-01', 0],
+            ['2000-10-01', null],
+          ],
+        },
+      ],
+      totalStackedValues,
     ]);
   });
 });
