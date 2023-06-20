@@ -64,7 +64,7 @@ const FR_D3_TIME_FORMAT: TimeLocaleDefinition = {
     'oct.',
     'nov.',
     'déc.',
-  ]
+  ],
 };
 export default class TimeFormatterRegistry extends RegistryWithDefaultKey<
   TimeFormatter,
