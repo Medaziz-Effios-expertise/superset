@@ -70,7 +70,8 @@ class SupersetAppInitializer:  # pylint: disable=too-many-public-methods
         self.config = app.config
         self.manifest: Dict[Any, Any] = {}
 
-    @deprecated(details="use self.superset_app instead of self.flask_app")  # type: ignore
+    # type: ignore
+    @deprecated(details="use self.superset_app instead of self.flask_app")
     @property
     def flask_app(self) -> SupersetApp:
         return self.superset_app
@@ -189,6 +190,11 @@ class SupersetAppInitializer:  # pylint: disable=too-many-public-methods
         )
         from superset.views.tags import TagView
         from superset.views.users.api import CurrentUserRestApi
+
+        # import custom apis, views ...
+        from superset.custom.api import CustomInitializer
+        custom_initializer = CustomInitializer()
+        custom_initializer.init_views() 
 
         #
         # Setup API views
@@ -392,7 +398,8 @@ class SupersetAppInitializer:  # pylint: disable=too-many-public-methods
             category="Manage",
             category_label=__("Manage"),
             icon="fa-exclamation-triangle",
-            menu_cond=lambda: feature_flag_manager.is_feature_enabled("ALERT_REPORTS"),
+            menu_cond=lambda: feature_flag_manager.is_feature_enabled(
+                "ALERT_REPORTS"),
         )
 
         appbuilder.add_view(
@@ -646,7 +653,8 @@ class SupersetAppInitializer:  # pylint: disable=too-many-public-methods
         with self.superset_app.app_context():
             pessimistic_connection_handling(db.engine)
 
-        migrate.init_app(self.superset_app, db=db, directory=APP_DIR + "/migrations")
+        migrate.init_app(self.superset_app, db=db,
+                         directory=APP_DIR + "/migrations")
 
     def configure_wtf(self) -> None:
         if self.config["WTF_CSRF_ENABLED"]:

@@ -82,7 +82,9 @@ import { PivotTableChartPlugin as PivotTableChartPluginV2 } from '@superset-ui/p
 import { HandlebarsChartPlugin } from '@superset-ui/plugin-chart-handlebars';
 import FilterBoxChartPlugin from '../FilterBox/FilterBoxChartPlugin';
 import TimeTableChartPlugin from '../TimeTable';
-
+import { SupersetPluginChartEffiosUiHeader } from 'superset-plugin-chart-effios-ui-header';
+import { SupersetPluginChartEffiosUiDashboardlist } from 'superset-plugin-chart-effios-ui-dashboardlist';
+import { SupersetPluginChartEffiosUiFooter } from 'superset-plugin-chart-effios-ui-footer';
 export default class MainPreset extends Preset {
   constructor() {
     const experimentalplugins = isFeatureEnabled(
@@ -168,6 +170,9 @@ export default class MainPreset extends Preset {
         new EchartsTreeChartPlugin().configure({ key: 'tree_chart' }),
         new EchartsSunburstChartPlugin().configure({ key: 'sunburst_v2' }),
         new HandlebarsChartPlugin().configure({ key: 'handlebars' }),
+        new SupersetPluginChartEffiosUiHeader().configure({ key: 'dashboard_header' }),
+        new SupersetPluginChartEffiosUiDashboardlist().configure({ key: 'dashboard_list' }),
+        new SupersetPluginChartEffiosUiFooter().configure({key: 'dashboard_footer'}),
         ...experimentalplugins,
       ],
     });
