@@ -20,7 +20,54 @@ import { RegistryWithDefaultKey, OverwritePolicy } from '../models';
 import TimeFormats, { LOCAL_PREFIX } from './TimeFormats';
 import createD3TimeFormatter from './factories/createD3TimeFormatter';
 import TimeFormatter from './TimeFormatter';
+import { TimeLocaleDefinition } from 'd3-time-format';
 
+// this files is required to correct the charts languages , with this time charts could be displayed in french
+// this file should be placed under this pathway : superset-frontend/packages/superset-ui-core/src/time-format/TimeFormatterRegistry.ts
+const FR_D3_TIME_FORMAT: TimeLocaleDefinition = {
+  dateTime: '%x, %X',
+  date: '%-m/%-d/%Y',
+  time: '%-I:%M:%S %p',
+  periods: ['AM', 'PM'],
+  days: [
+    'dimanche',
+    'lundi',
+    'mardi',
+    'mercredi',
+    'jeudi',
+    'vendredi',
+    'samedi',
+  ],
+  shortDays: ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'],
+  months: [
+    'janvier',
+    'février',
+    'mars',
+    'avril',
+    'mai',
+    'juin',
+    'juillet',
+    'août',
+    'septembre',
+    'octobre',
+    'novembre',
+    'décembre',
+  ],
+  shortMonths: [
+    'janv.',
+    'févr.',
+    'mars',
+    'avr.',
+    'mai',
+    'juin',
+    'juil.',
+    'août',
+    'sept.',
+    'oct.',
+    'nov.',
+    'déc.',
+  ],
+};
 export default class TimeFormatterRegistry extends RegistryWithDefaultKey<
   TimeFormatter,
   TimeFormatter
@@ -47,7 +94,11 @@ export default class TimeFormatterRegistry extends RegistryWithDefaultKey<
     // Create new formatter if does not exist
     const useLocalTime = targetFormat.startsWith(LOCAL_PREFIX);
     const formatString = targetFormat.replace(LOCAL_PREFIX, '');
-    const formatter = createD3TimeFormatter({ formatString, useLocalTime });
+    const formatter = createD3TimeFormatter({
+      formatString,
+      useLocalTime,
+      locale: navigator.language.includes('fr') ? FR_D3_TIME_FORMAT : undefined,
+    });
     this.registerValue(targetFormat, formatter);
 
     return formatter;
