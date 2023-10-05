@@ -16,11 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+import { TimeLocaleDefinition } from 'd3-time-format';
 import { RegistryWithDefaultKey, OverwritePolicy } from '../models';
 import TimeFormats, { LOCAL_PREFIX } from './TimeFormats';
 import createD3TimeFormatter from './factories/createD3TimeFormatter';
 import TimeFormatter from './TimeFormatter';
-import { TimeLocaleDefinition } from 'd3-time-format';
 
 // this files is required to correct the charts languages , with this time charts could be displayed in french
 // this file should be placed under this pathway : superset-frontend/packages/superset-ui-core/src/time-format/TimeFormatterRegistry.ts
